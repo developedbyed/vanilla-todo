@@ -7,14 +7,36 @@ const filterOption = document.querySelector(".filter-todo");
 //Event Listeners
 document.addEventListener("DOMContentLoaded", getTodos);
 todoButton.addEventListener("click", addTodo);
+todoButton.addEventListener("mouseenter", handleHover);
+todoInput.addEventListener("focusin", ()=>{  setTimeout( handleHover,100)}); // handle situation when user drag and drop the text 
+todoInput.addEventListener("keyup",handleHover); 
 todoList.addEventListener("click", deleteTodo);
+
 filterOption.addEventListener("click", filterTodo);
 
+
 //Functions
+function handleHover() {
+
+  //  we can create  classname like
+  // .disable-but which store css property that  looks like button is disabled 
+  if (todoInput.value.trim() === "") {
+    todoButton.classList.add("disable-but")
+  }
+  else {
+    todoButton.classList.remove("disable-but")
+  }
+
+}
 
 function addTodo(e) {
   //Prevent natural behaviour
   e.preventDefault();
+
+  if(todoInput.value.trim() ==="" ){ 
+     return; 
+  } 
+
   //Create todo div
   const todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");

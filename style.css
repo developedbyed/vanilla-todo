@@ -27,6 +27,8 @@ form button {
   border: none;
   background: white;
 }
+
+
 form button {
   color: #ff6f47;
   background: #f7fffe;
@@ -36,6 +38,16 @@ form button {
 form button:hover {
   background: #ff6f47;
   color: white;
+}
+
+.disable-but{ 
+  color: #ff6f477a;
+}
+.disable-but:hover{ 
+  color: #ff6f477a;
+  background:white;
+  
+  cursor:default; 
 }
 .todo-container {
   display: flex;
